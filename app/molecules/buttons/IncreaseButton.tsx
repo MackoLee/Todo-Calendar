@@ -11,7 +11,7 @@ export default function IncreaseButton() {
   }
   return (
     <Button
-      type="button"
+      className="bg-primary"
       onClick={() => increment()}
     >
       Increment
