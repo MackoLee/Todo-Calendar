@@ -2,8 +2,8 @@
 
 import { MainMonthCalendar } from '@/app/molecules/calendars/MainMonthCalendar';
 import { MainTodoList } from '@/app/molecules/todo/MainTodoList';
-import { AddTodoDialog } from '@/app/molecules/dialogs/AddTodoDialog';
 import { RemoveTodoButton } from '@/app/molecules/buttons/RemoveTodoButton';
+import { AddTodoDialog } from '@/app/organisms/dialogs/AddTodoDialog';
 
 export const DamBody = function DamBody() {
   return (
@@ -14,8 +14,8 @@ export const DamBody = function DamBody() {
       <div className="basis-1/4">
         <div className="w-full h-full rounded-xl drop-shadow-md bg-white p-[18px]">
           <div className="flex justify-between mb-[18px]">
-            <AddTodoDialog />
             <RemoveTodoButton />
+            <AddTodoDialog />
           </div>
           <MainTodoList />
         </div>

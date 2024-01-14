@@ -1,19 +1,19 @@
 import type { FC } from 'react';
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
 } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
 import { FaPlus } from 'react-icons/fa6';
 import { DialogBody } from 'next/dist/client/components/react-dev-overlay/internal/components/Dialog';
+import { LabelText } from '@/components/dialog/LabelText';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
-export const AddTodoDialog: FC = function AddTodoDialog() {
+export interface TodoDialogProps {
+  isEdit?: boolean,
+}
+export const TodoDialog: FC<TodoDialogProps> = function TodoDialog({
+  isEdit = false,
+}) {
   return (
     <Dialog>
       <DialogTrigger
@@ -28,18 +28,21 @@ export const AddTodoDialog: FC = function AddTodoDialog() {
             작업을 추가해주세요!
           </DialogTitle>
         </DialogHeader>
-        <DialogBody>
-          <DialogDescription>
-            내용을 입력해주세요.
-          </DialogDescription>
-          <Input className="border-slate-200" type="text" />
+        <DialogBody
+          className="flex flex-col gap-2"
+        >
+          <LabelText label="내용을 입력해주세요.">
+            <Input className="border-slate-200" type="text" />
+          </LabelText>
+          <LabelText label="색상을 입력해주세요." />
+
         </DialogBody>
         <DialogFooter>
           <Button variant="outline">
             취소
           </Button>
           <Button color="bg-sky-900">
-            추가
+            {isEdit ? '수정' : '추가'}
           </Button>
         </DialogFooter>
       </DialogContent>

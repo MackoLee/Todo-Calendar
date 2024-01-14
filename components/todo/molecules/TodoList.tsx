@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { TodoOptions } from '@/components/todo/TodoItem';
-import { TodoItem } from '@/components/todo/TodoItem';
+import type { TodoOptions } from '@/components/todo/molecules/TodoItem';
+import { TodoItem } from '@/components/todo/molecules/TodoItem';
 
 export interface TodoListProps {
   className?: string,

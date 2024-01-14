@@ -2,9 +2,9 @@
 
 import { useRecoilState } from 'recoil';
 import { dateAtom } from '@/recoil/atoms/todo-calendar-atom';
-import { Button } from '@/components/ui/button';
 import { FaArrowRight } from 'react-icons/fa';
 import { FC } from 'react';
+import { IconButton } from '@/app/atoms/buttons/IconButton';
 
 export const IncreaseMonthButton: FC = function IncreaseMonthButton() {
   const [date, setDate] = useRecoilState(dateAtom);
@@ -12,13 +12,9 @@ export const IncreaseMonthButton: FC = function IncreaseMonthButton() {
     setDate(date.clone().add(1, 'month').startOf('month'));
   }
   return (
-    <Button
-      className="text-black"
-      variant="outline"
+    <IconButton
       onClick={() => onClick()}
-      size="icon"
-    >
-      <FaArrowRight />
-    </Button>
+      icon={FaArrowRight}
+    />
   );
 };

@@ -13,7 +13,7 @@ export const DecreaseMonthButton: FC = function DecreaseMonthButton() {
   }
   return (
     <Button
-      className="bg-primary"
+      className="bg-white text-black border"
       onClick={() => onClick()}
     >
       <div>
