@@ -2,8 +2,9 @@
 
 import { useRecoilState } from 'recoil';
 import { counterAtom } from '@/recoil/atoms/counter-atom';
+import { FC } from 'react';
 
-export default function CounterText() {
+export const CounterText: FC = function CounterText() {
   const [counter] = useRecoilState(counterAtom);
 
   return (
@@ -11,4 +12,4 @@ export default function CounterText() {
       {counter}
     </div>
   );
-}
+};

@@ -37,9 +37,10 @@ export const Box: FC<BoxProps> = function Box({ name }) {
     }),
   }));
 
-  const opacity = isDragging ? 0.4 : 1;
+  // const opacity = isDragging ? 0.4 : 1;
+  const opacity = isDragging ? 'opacity-40' : '';
   return (
-    <div ref={drag} style={{ ...style, opacity }} data-testid="box">
+    <div ref={drag} className={opacity} style={{ ...style }} data-testid="box">
       {name}
     </div>
   );

@@ -3,8 +3,9 @@
 import { useRecoilState } from 'recoil';
 import { counterAtom } from '@/recoil/atoms/counter-atom';
 import { Button } from '@/components/ui/button';
+import { FC } from 'react';
 
-export default function IncreaseButton() {
+export const IncreaseButton: FC = function IncreaseButton() {
   const [, setCount] = useRecoilState(counterAtom);
   function increment() {
     setCount((c) => c + 1);
@@ -17,4 +18,4 @@ export default function IncreaseButton() {
       Increment
     </Button>
   );
-}
+};
