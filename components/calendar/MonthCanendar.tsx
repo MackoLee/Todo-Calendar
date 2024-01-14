@@ -65,30 +65,33 @@ export const MonthCalendar: FC<MonthCalendarProps> = function MonthCalendar({
           );
         })}
       </div>
-      {Array.from({ length: ((endDay.diff(startDay, 'days') + 1) / 7) }).map((nWeek, index1) => (
-        <div
-          className="flex grow divide-x divide-[#BEBEBE]"
-          key={`week-${nWeek}`}
-        >
-          {Array.from({ length: 7 }).map((__, index2) => {
-            const currentDay = moment(startDay).add(index2 + (7 * index1), 'days');
-            return (
-              <Dustbin
-                name={currentDay.format('YYYY-MM-DD')}
-                key={currentDay.toJSON()}
-              >
-                <div
-                  className="flex-1 h-full relative py-2"
+      {Array.from({ length: ((endDay.diff(startDay, 'days') + 1) / 7) }).map((nWeek, index1) => {
+        const currentWeekDay = moment(startDay).add(7 * index1, 'days');
+        return (
+          <div
+            className="flex grow divide-x divide-[#BEBEBE]"
+            key={`week-${currentWeekDay.toJSON()}`}
+          >
+            {Array.from({ length: 7 }).map((__, index2) => {
+              const currentDay = currentWeekDay.clone().add(index2, 'days');
+              return (
+                <Dustbin
+                  name={currentDay.format('YYYY-MM-DD')}
+                  key={currentDay.toJSON()}
                 >
-                  <span className={`text-center inline-block leading-6 w-6 rounded-full ${getTextColor(currentDay)} ${getBackgroundColor(currentDay)}`}>
-                    {currentDay.format('D')}
-                  </span>
-                </div>
-              </Dustbin>
-            );
-          })}
-        </div>
-      ))}
+                  <div
+                    className="flex-1 h-full relative py-2"
+                  >
+                    <span className={`text-center inline-block leading-6 w-6 rounded-full ${getTextColor(currentDay)} ${getBackgroundColor(currentDay)}`}>
+                      {currentDay.format('D')}
+                    </span>
+                  </div>
+                </Dustbin>
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };

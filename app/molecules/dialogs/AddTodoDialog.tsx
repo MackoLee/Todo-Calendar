@@ -16,10 +16,11 @@ import { Input } from '@/components/ui/input';
 export const AddTodoDialog: FC = function AddTodoDialog() {
   return (
     <Dialog>
-      <DialogTrigger>
-        <Button variant="outline" className="" size="icon">
-          <FaPlus className="text-black h-4 w-4" />
-        </Button>
+      <DialogTrigger
+        className="w-10 flex justify-center items-center border border-slate-200 rounded-md hover:bg-slate-200 transition-colors"
+        type="button"
+      >
+        <FaPlus className="text-black h-4 w-4" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -34,12 +35,12 @@ export const AddTodoDialog: FC = function AddTodoDialog() {
           <Input className="border-slate-200" type="text" />
         </DialogBody>
         <DialogFooter>
-          <button type="button">
-            Cancel
-          </button>
-          <button type="button">
-            Add
-          </button>
+          <Button variant="outline">
+            취소
+          </Button>
+          <Button color="bg-sky-900">
+            추가
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

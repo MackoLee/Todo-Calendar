@@ -13,8 +13,10 @@ export const IncreaseMonthButton: FC = function IncreaseMonthButton() {
   }
   return (
     <Button
-      className="bg-primary"
+      className="text-black"
+      variant="outline"
       onClick={() => onClick()}
+      size="icon"
     >
       <FaArrowRight />
     </Button>
