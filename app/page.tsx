@@ -1,9 +1,9 @@
-import { DamTemplate } from '@/app/templates/DamTemplate';
+import { MonthTodoTemplate } from '@/app/templates/MonthTodoTemplate';
 
 export default function Home() {
   return (
     <main className="h-screen w-screen">
-      <DamTemplate />
+      <MonthTodoTemplate />
     </main>
   );
 }

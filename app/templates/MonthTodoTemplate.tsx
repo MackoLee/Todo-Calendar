@@ -10,7 +10,7 @@ import { AddTodoDialog } from '@/app/organisms/dialogs/AddTodoDialog';
 import { MainTodoList } from '@/app/organisms/todos/MainTodoList';
 import { MainHeader } from '@/app/organisms/elements/MainHeader';
 
-export const DamTemplate = function DamTemplate() {
+export const MonthTodoTemplate = function DamTemplate() {
   return (
     <div className="flex flex-col w-full h-full bg-[#00516A] text-white">
       <div className="">
