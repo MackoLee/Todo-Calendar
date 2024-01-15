@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { TodoDialog } from '@/components/dialog/TodoDialog';
+import { TodoDialog } from '@/components/oranisms/dialog/TodoDialog';
 
 export const AddTodoDialog: FC = function AddTodoDialog() {
   return (

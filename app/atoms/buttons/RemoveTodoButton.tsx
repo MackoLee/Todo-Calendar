@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from '@/components/drag-and-drop/ItemTypes';
+import { ItemTypes } from '@/types/ItemTypes';
 import { Button } from '@/components/ui/button';
 
 export const RemoveTodoButton: FC = function RemoveTodoButton() {

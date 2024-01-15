@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import { useDrag } from 'react-dnd';
 
-import { ItemTypes } from '@/components/drag-and-drop/ItemTypes';
-import { TodoFinishedCheckBox } from '@/components/todo/atoms/TodoFinishedCheckBox';
+import { ItemTypes } from '@/types/ItemTypes';
+import { TodoFinishedCheckBox } from '@/components/atoms/check-boxs/TodoFinishedCheckBox';
 
 export interface TodoOptions {
   id: number | string,

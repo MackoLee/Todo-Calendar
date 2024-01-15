@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from 'react';
 import moment from 'moment';
 import 'moment/locale/ko';
-import { Dustbin } from '@/components/calendar/Dustbin';
+import { Dustbin } from '@/components/atoms/dustbins/Dustbin';
 
 export interface MonthCalendarProps {
   className?: string,

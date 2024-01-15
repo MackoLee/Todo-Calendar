@@ -4,7 +4,7 @@ import {
 } from '@/components/ui/dialog';
 import { FaPlus } from 'react-icons/fa6';
 import { DialogBody } from 'next/dist/client/components/react-dev-overlay/internal/components/Dialog';
-import { LabelText } from '@/components/dialog/LabelText';
+import { LabelText } from '@/components/oranisms/dialog/LabelText';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 

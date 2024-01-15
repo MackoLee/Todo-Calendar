@@ -1,7 +1,7 @@
 import { useMemo, type FC, ReactNode } from 'react';
 import { useDrop } from 'react-dnd';
 
-import { ItemTypes } from '@/components/drag-and-drop/ItemTypes';
+import { ItemTypes } from '@/types/ItemTypes';
 
 export interface DustbinProps {
   className?: string,
