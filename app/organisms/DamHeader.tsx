@@ -5,7 +5,6 @@ import { IncreaseMonthButton } from '@/app/molecules/buttons/IncreaseMonthButton
 import { TodayButton } from '@/app/molecules/buttons/TodayButton';
 
 export const DamHeader: FC = function DamHeader() {
-  const a = 1;
   return (
     <div className="h-[var(--header-height)]">
       <div className="h-full flex flex-col mx-6">

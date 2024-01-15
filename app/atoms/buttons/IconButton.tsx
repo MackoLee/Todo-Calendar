@@ -4,7 +4,8 @@ import React from 'react';
 import { VariantProps } from 'class-variance-authority';
 import { IconType } from 'react-icons';
 
-export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  VariantProps<typeof buttonVariants> {
   icon: IconType
 }
 
