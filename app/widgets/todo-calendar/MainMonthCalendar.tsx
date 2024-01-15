@@ -1,4 +1,4 @@
-import { MonthCalendar } from '@/components/oranisms/calendar/MonthCanendar';
+import { MonthCalendar } from '@/components/organisms/calendar/MonthCanendar';
 import { dateAtom } from '@/recoil/atoms/todo-calendar-atom';
 import { useRecoilState } from 'recoil';
 import { FC } from 'react';

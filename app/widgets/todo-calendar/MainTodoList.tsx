@@ -1,4 +1,4 @@
-import { TodoList } from '@/components/oranisms/todo/TodoList';
+import { TodoList } from '@/components/organisms/todo/TodoList';
 import { todoListAtom } from '@/recoil/atoms/todo-calendar-atom';
 import { useRecoilState } from 'recoil';
 import { AddTodoDialog } from '@/app/organisms/dialogs/AddTodoDialog';

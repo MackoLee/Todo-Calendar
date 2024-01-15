@@ -1,27 +1,30 @@
 import type { FC } from 'react';
 import {
-  Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
+  Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
 } from '@/components/ui/dialog';
 import { FaPlus } from 'react-icons/fa6';
 import { DialogBody } from 'next/dist/client/components/react-dev-overlay/internal/components/Dialog';
-import { LabelText } from '@/components/oranisms/dialog/LabelText';
+import { LabelText } from '@/components/atoms/text/LabelText';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { ColorPalette } from '@/components/molecules/palettes/ColorPalette';
+import { TodoDialogColorPalette } from '@/app/widgets/todo-dialog/TodoDialogColorPalette';
+import { TodoDialogTextInput } from '@/app/widgets/todo-dialog/TodoDialogTextInput';
+import { todoDialogOpenAtom } from '@/recoil/atoms/todo-dialog-atom';
+import { useRecoilState } from 'recoil';
 
 export interface TodoDialogProps {
   isEdit?: boolean,
+  onSubmmit?: () => void
 }
+
 export const TodoDialog: FC<TodoDialogProps> = function TodoDialog({
   isEdit = false,
 }) {
+  const [open, setOpen] = useRecoilState(todoDialogOpenAtom);
+
   return (
-    <Dialog>
-      <DialogTrigger
-        className="w-10 flex justify-center items-center border border-slate-200 rounded-md hover:bg-slate-200 transition-colors"
-        type="button"
-      >
-        <FaPlus className="text-black h-4 w-4" />
-      </DialogTrigger>
+    <Dialog open={open} onOpenChange={(_open) => setOpen(_open)}>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
@@ -31,10 +34,8 @@ export const TodoDialog: FC<TodoDialogProps> = function TodoDialog({
         <DialogBody
           className="flex flex-col gap-2"
         >
-          <LabelText label="내용을 입력해주세요.">
-            <Input className="border-slate-200" type="text" />
-          </LabelText>
-          <LabelText label="색상을 입력해주세요." />
+          <TodoDialogTextInput />
+          <TodoDialogColorPalette />
 
         </DialogBody>
         <DialogFooter>

@@ -1,13 +1,13 @@
 'use client';
 
 import { DateTitleText } from '@/app/atoms/texts/DateTitleText';
-import { DecreaseMonthButton } from '@/app/atoms/buttons/DecreaseMonthButton';
-import { TodayButton } from '@/app/atoms/buttons/TodayButton';
-import { IncreaseMonthButton } from '@/app/atoms/buttons/IncreaseMonthButton';
-import { MainMonthCalendar } from '@/app/organisms/calendars/MainMonthCalendar';
+import { DecreaseMonthButton } from '@/app/widgets/todo-calendar/buttons/DecreaseMonthButton';
+import { TodayButton } from '@/app/widgets/todo-calendar/buttons/TodayButton';
+import { IncreaseMonthButton } from '@/app/widgets/todo-calendar/buttons/IncreaseMonthButton';
+import { MainMonthCalendar } from '@/app/widgets/todo-calendar/MainMonthCalendar';
 import { RemoveTodoButton } from '@/app/atoms/buttons/RemoveTodoButton';
 import { AddTodoDialog } from '@/app/organisms/dialogs/AddTodoDialog';
-import { MainTodoList } from '@/app/organisms/todos/MainTodoList';
+import { MainTodoList } from '@/app/widgets/todo-calendar/MainTodoList';
 import { MainHeader } from '@/app/organisms/elements/MainHeader';
 
 export const MonthTodoTemplate = function DamTemplate() {

@@ -1,8 +1,12 @@
 import type { FC } from 'react';
-import { TodoDialog } from '@/components/oranisms/dialog/TodoDialog';
+import { TodoDialog } from '@/app/widgets/todo-dialog/TodoDialog';
+import { TodoDialogAddButton } from '@/app/widgets/todo-dialog/TodoDialogAddButton';
 
 export const AddTodoDialog: FC = function AddTodoDialog() {
   return (
-    <TodoDialog isEdit />
+    <>
+      <TodoDialogAddButton />
+      <TodoDialog isEdit />
+    </>
   );
 };

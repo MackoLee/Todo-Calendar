@@ -5,7 +5,7 @@ export interface TodoFinishedCheckBoxProps {
   className?: string
   value?: boolean
 }
-export const TodoFinishedCheckBox: FC<TodoFinishedCheckBoxProps> = function TodoFinishedCheckBox({
+export const CheckBox: FC<TodoFinishedCheckBoxProps> = function TodoFinishedCheckBox({
   className = '',
   value = false,
 }) {

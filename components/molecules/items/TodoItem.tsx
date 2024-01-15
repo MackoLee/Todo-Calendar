@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useDrag } from 'react-dnd';
 
 import { ItemTypes } from '@/types/ItemTypes';
-import { TodoFinishedCheckBox } from '@/components/atoms/check-boxs/TodoFinishedCheckBox';
+import { CheckBox } from '@/components/atoms/check-boxs/CheckBox';
 
 export interface TodoOptions {
   id: number | string,
@@ -44,7 +44,7 @@ export const TodoItem: FC<TodoItemProps> = function TodoItem({ className = '', o
       className={`w-full bg-[#004E6F] rounded-md p-3 flex gap-2 cursor-grab active:cursor-grabbing ${className} ${opacity}`}
       data-testid="box"
     >
-      <TodoFinishedCheckBox
+      <CheckBox
         className="my-auto"
         value={options.finished}
       />
