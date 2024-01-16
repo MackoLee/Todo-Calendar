@@ -1,27 +1,17 @@
 import type { FC } from 'react';
 import {
-  Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
+  Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle,
 } from '@/components/ui/dialog';
-import { FaPlus } from 'react-icons/fa6';
 import { DialogBody } from 'next/dist/client/components/react-dev-overlay/internal/components/Dialog';
-import { LabelText } from '@/components/atoms/text/LabelText';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { ColorPalette } from '@/components/molecules/palettes/ColorPalette';
 import { TodoDialogColorPalette } from '@/app/widgets/todo-dialog/TodoDialogColorPalette';
 import { TodoDialogTextInput } from '@/app/widgets/todo-dialog/TodoDialogTextInput';
-import { todoDialogOpenAtom } from '@/recoil/atoms/todo-dialog-atom';
+import { isOpenAtom } from '@/recoil/atoms/todo-dialog-atom';
 import { useRecoilState } from 'recoil';
+import { SubmitButton } from '@/app/widgets/todo-dialog/buttons/SubmitButton';
+import { CancelButton } from '@/app/widgets/todo-dialog/buttons/CancelButton';
 
-export interface TodoDialogProps {
-  isEdit?: boolean,
-  onSubmmit?: () => void
-}
-
-export const TodoDialog: FC<TodoDialogProps> = function TodoDialog({
-  isEdit = false,
-}) {
-  const [open, setOpen] = useRecoilState(todoDialogOpenAtom);
+export const TodoDialog: FC = function TodoDialog() {
+  const [open, setOpen] = useRecoilState(isOpenAtom);
 
   return (
     <Dialog open={open} onOpenChange={(_open) => setOpen(_open)}>
@@ -36,15 +26,10 @@ export const TodoDialog: FC<TodoDialogProps> = function TodoDialog({
         >
           <TodoDialogTextInput />
           <TodoDialogColorPalette />
-
         </DialogBody>
         <DialogFooter>
-          <Button variant="outline">
-            취소
-          </Button>
-          <Button color="bg-sky-900">
-            {isEdit ? '수정' : '추가'}
-          </Button>
+          <SubmitButton />
+          <CancelButton />
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -2,12 +2,14 @@ import type { FC } from 'react';
 import { useDrag } from 'react-dnd';
 
 import { ItemTypes } from '@/types/ItemTypes';
-import { CheckBox } from '@/components/atoms/check-boxs/CheckBox';
+import { CheckBox } from '@/components/check-boxs/CheckBox';
+import { ColorOption, bgColorOptions } from '@/components/palettes/ColorPalette';
 
 export interface TodoOptions {
   id: number | string,
-  name: string,
+  text: string,
   finished: boolean,
+  color: ColorOption
 }
 export interface TodoItemProps {
   className?: string,
@@ -28,7 +30,7 @@ export const TodoItem: FC<TodoItemProps> = function TodoItem({ className = '', o
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<DropResult>();
       if (item && dropResult) {
-        alert(`You dropped ${JSON.stringify(item.options.name)} into ${dropResult.name}!`);
+        alert(`You dropped ${JSON.stringify(item.options.text)} into ${dropResult.name}!`);
       }
     },
     collect: (monitor) => ({
@@ -38,17 +40,19 @@ export const TodoItem: FC<TodoItemProps> = function TodoItem({ className = '', o
   }));
 
   const opacity = isDragging ? 'opacity-40' : '';
+  const bgColor = bgColorOptions.find((colorOption) => colorOption.name === options.color)?.color;
+
   return (
     <div
       ref={drag}
-      className={`w-full bg-[#004E6F] rounded-md p-3 flex gap-2 cursor-grab active:cursor-grabbing ${className} ${opacity}`}
+      className={`w-full bg-[#004E6F] rounded-md p-3 flex gap-2 cursor-grab active:cursor-grabbing ${className} ${opacity} ${bgColor}`}
       data-testid="box"
     >
       <CheckBox
         className="my-auto"
         value={options.finished}
       />
-      {options.name}
+      {options.text}
     </div>
   );
 };

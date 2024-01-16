@@ -1,21 +1,15 @@
+import { dateAtom } from '@/recoil/atoms/todo-calendar-atom';
+import { useRecoilState } from 'recoil';
 import React, { FC, useMemo } from 'react';
-import moment from 'moment';
-import 'moment/locale/ko';
-import { Dustbin } from '@/components/atoms/dustbins/Dustbin';
+import moment from 'moment/moment';
+import { Dustbin } from '@/components/dustbins/Dustbin';
 
-export interface MonthCalendarProps {
-  className?: string,
-  year: number,
-  month: number,
-  day: number,
-}
+export const MonthCalendar: FC = function MainMonthCalendar() {
+  const [date] = useRecoilState(dateAtom);
+  const year = date.year();
+  const month = date.month() + 1;
+  const day = date.date();
 
-export const MonthCalendar: FC<MonthCalendarProps> = function MonthCalendar({
-  year,
-  month,
-  day,
-  className,
-}) {
   const startDay = useMemo(() => {
     const startOfMonth = moment([year, month - 1, 1]);
 
@@ -49,7 +43,7 @@ export const MonthCalendar: FC<MonthCalendarProps> = function MonthCalendar({
   };
 
   return (
-    <div className={`flex flex-col divide-y divide-[#BEBEBE] border border-[#BEBEBE] w-full h-full drop-shadow-md text-center ${className}`}>
+    <div className="flex flex-col divide-y divide-[#BEBEBE] border border-[#BEBEBE] w-full h-full bg-white rounded-xl drop-shadow-md text-center">
       <div className="flex divide-x divide-[#BEBEBE] font-bold">
         {Array.from({ length: 7 }).map((_, index2) => {
           const currentDay = moment(startDay).add(7 + index2, 'days');

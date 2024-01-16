@@ -1,5 +1,6 @@
 import { atom } from 'recoil';
 import moment from 'moment';
+import { ColorOption } from '@/components/palettes/ColorPalette';
 
 export const dateAtom = atom({
   key: 'date',
@@ -11,12 +12,14 @@ export const todoListAtom = atom({
   default: [
     {
       id: 1,
-      name: '레몬 향이 나고 부드러운 바디워시 사야 함',
+      text: '레몬 향이 나고 부드러운 바디워시 사야 함',
+      color: 'cyan-900' as ColorOption,
       finished: false,
     },
     {
       id: 2,
-      name: '떡볶이 만들어 먹기',
+      text: '떡볶이 만들어 먹기',
+      color: 'cyan-900' as ColorOption,
       finished: false,
     },
   ],

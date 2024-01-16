@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { ColorPalette } from '@/components/molecules/palettes/ColorPalette';
+import { ColorPalette } from '@/components/palettes/ColorPalette';
 import { DialogDescription } from '@/components/ui/dialog';
 import { selectedColorAtom } from '@/recoil/atoms/todo-dialog-atom';
 import { useRecoilState } from 'recoil';

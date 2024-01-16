@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { DateTitleText } from '@/app/atoms/texts/DateTitleText';
+import { DateTitleText } from '@/app/widgets/todo-calendar/texts/DateTitleText';
 import { DecreaseMonthButton } from '@/app/widgets/todo-calendar/buttons/DecreaseMonthButton';
 import { TodayButton } from '@/app/widgets/todo-calendar/buttons/TodayButton';
 import { IncreaseMonthButton } from '@/app/widgets/todo-calendar/buttons/IncreaseMonthButton';

@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { FilledCheckBox } from '@/components/atoms/check-boxs/FilledCheckBox';
+import { FilledCheckBox } from '@/components/check-boxs/FilledCheckBox';
 
 export type ColorOption = 'cyan-900' | 'cyan-800' | 'cyan-700' | 'cyan-600' | 'cyan-500';
 export interface ColorPaletteProps {
@@ -12,7 +12,29 @@ type ColorOptionType = {
   color: string
 };
 
-const colorOptions: ColorOptionType[] = [
+export const bgColorOptions: ColorOptionType[] = [
+  {
+    name: 'cyan-900',
+    color: 'bg-cyan-900',
+  },
+  {
+    name: 'cyan-800',
+    color: 'bg-cyan-800',
+  },
+  {
+    name: 'cyan-700',
+    color: 'bg-cyan-700',
+  },
+  {
+    name: 'cyan-600',
+    color: 'bg-cyan-600',
+  },
+  {
+    name: 'cyan-500',
+    color: 'bg-cyan-500',
+  },
+];
+export const textColorOptions: ColorOptionType[] = [
   {
     name: 'cyan-900',
     color: 'text-cyan-900',
@@ -47,7 +69,7 @@ export const ColorPalette: FC<ColorPaletteProps> = function ColorPalette({
   return (
     <div className="flex gap-1">
       {
-        colorOptions.map((color) => (
+        textColorOptions.map((color) => (
           <FilledCheckBox
             key={color.name}
             value={color.name === selectedColor}

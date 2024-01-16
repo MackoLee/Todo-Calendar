@@ -1,32 +1,24 @@
 import { atom, RecoilState } from 'recoil';
+import { ColorOption } from '@/components/palettes/ColorPalette';
 
-// export const dateAtom = atom({
-//   key: 'date',
-//   default: moment(),
-// });
-//
-// export const todoListAtom = atom({
-//   key: 'todoList',
-//   default: [
-//     {
-//       id: 1,
-//       name: '레몬 향이 나고 부드러운 바디워시 사야 함',
-//       finished: false,
-//     },
-//     {
-//       id: 2,
-//       name: '떡볶이 만들어 먹기',
-//       finished: false,
-//     },
-//   ],
-// });
-
-export const todoDialogOpenAtom = atom({
-  key: 'todoDialogOpen',
+export const isOpenAtom = atom({
+  key: 'todoDialogIsOpen',
   default: false,
 });
 
-export const selectedColorAtom:RecoilState<any> = atom({
-  key: 'selectedColor',
-  default: 'cyan-900',
+export const selectedColorAtom = atom({
+  key: 'todoDialogSelectedColor',
+  default: 'cyan-900' as ColorOption,
+});
+
+export type TodoDialogMode = 'add' | 'edit';
+
+export const modeAtom = atom({
+  key: 'todoDialogMode',
+  default: 'add' as TodoDialogMode,
+});
+
+export const taskTextAtom = atom({
+  key: 'todoDialogTaskText',
+  default: '',
 });
