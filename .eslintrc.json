@@ -15,7 +15,8 @@
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "jsx-a11y/click-events-have-key-events": "warn"
   }
 }
 

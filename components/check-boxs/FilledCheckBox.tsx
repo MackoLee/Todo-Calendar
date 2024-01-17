@@ -15,6 +15,9 @@ export const FilledCheckBox: FC<ColorCheckBoxProps> = function FilledCheckBox({
 }) {
   return (
     <div
+      role="checkbox"
+      aria-checked="false"
+      tabIndex={0}
       className={`cursor-pointer ${className}`}
       onClick={() => onClick(!value)}
     >
