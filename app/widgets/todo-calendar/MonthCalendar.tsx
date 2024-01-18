@@ -1,12 +1,9 @@
-import { todoListAtom } from '@/recoil/atoms/todo-calendar-atom';
-import { useRecoilState } from 'recoil';
 import type { FC } from 'react';
 import React from 'react';
 import moment from 'moment/moment';
 import { Dustbin } from '@/components/dustbins/Dustbin';
 import { useTodoCalendar } from '@/hooks/use-todo-calendar';
 import { bgColorOptions } from '@/components/palettes/ColorPalette';
-import { TodoOptions } from '@/components/items/TodoItem';
 
 export const MonthCalendar: FC = function MainMonthCalendar() {
   const {

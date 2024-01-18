@@ -1,8 +1,7 @@
 import type { FC } from 'react';
 import { TodoItem, TodoOptions } from '@/components/items/TodoItem';
-import { useRecoilCallback, useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
 import { todoListAtom } from '@/recoil/atoms/todo-calendar-atom';
-import { useEffect } from 'react';
 
 export const TodoList: FC = function TodoList() {
   const todoList = useRecoilValue(todoListAtom);
