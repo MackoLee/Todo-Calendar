@@ -79,12 +79,14 @@ export const MonthCalendar: FC = function MainMonthCalendar() {
                     <span className={`text-center inline-block leading-6 w-6 rounded-full ${getTextColor(currentDay)} ${getBackgroundColor(currentDay)}`}>
                       {currentDay.format('D')}
                     </span>
-                    <div className="text-black">
-                      {getTodoListByDate(currentDay).map((todo:any) => (
-                        <div key={todo.id} className={`text-white mx-1.5 rounded-md text-sm p-1 ${getTodoBgColor(todo)}`}>
-                          {todo.text}
-                        </div>
-                      ))}
+                    <div className="text-black relative">
+                      <div className="absolute flex flex-col space-y-1 w-full">
+                        {getTodoListByDate(currentDay).map((todo:any) => (
+                          <div key={todo.id} className={`text-white mx-1.5 rounded-md text-sm p-1 ${getTodoBgColor(todo)}`}>
+                            {todo.text}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </Dustbin>

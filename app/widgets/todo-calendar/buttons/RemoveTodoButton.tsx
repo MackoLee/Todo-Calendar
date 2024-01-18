@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 export const RemoveTodoButton: FC = function RemoveTodoButton() {
   const [{ canDrop }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
-    drop: () => ({ name: 'Trash' }),
+    drop: () => ({ name: null }),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),

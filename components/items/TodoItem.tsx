@@ -46,7 +46,7 @@ export const TodoItem: FC<TodoItemProps> = function TodoItem({ className = '', o
   const opacity = isDragging ? 'opacity-40' : '';
   const bgColor = bgColorOptions.find((colorOption) => colorOption.name === options.color)?.color;
 
-  const hasDate = (_options: TodoOptions) => _options.start_date && _options.end_date;
+  const hasDate = (_options: TodoOptions) => (_options.start_date && _options.end_date);
 
   return (
     <div
