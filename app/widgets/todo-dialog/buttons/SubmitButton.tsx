@@ -12,11 +12,11 @@ export const SubmitButton: FC = function SubmitButton() {
   const [selectedColor] = useRecoilState(selectedColorAtom);
   const [taskText] = useRecoilState(taskTextAtom);
 
-  const { AddTodoList } = useTodoDialog();
+  const { addTodoList } = useTodoDialog();
 
   const onSubmitClick = () => {
     alert(`선택한 색상 : ${selectedColor}\n입력한 텍스트 : ${taskText}\n ${mode === 'edit' ? '수정' : '추가'} 완료!`);
-    AddTodoList();
+    addTodoList();
     setIsOpen(false);
   };
   return (

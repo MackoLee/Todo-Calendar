@@ -23,18 +23,21 @@ export const useTodoDialog = function useTodoDialog() {
   };
 
   const [todoList, setTodoList] = useRecoilState(todoListAtom);
-  const AddTodoList = () => {
+  const addTodoList = () => {
     // TODO: 추가가 됐을 때, API를 통해 서버에 저장하는 로직을 구현해야 합니다.
     setTodoList([...todoList, {
       id: todoList.reduce((acc, cur) => Math.max(acc, cur.id), 0) + 1,
       color: selectedColorValue as ColorOption,
       text: taskTextValue,
       finished: false,
+      start_date: '',
+      end_date: '',
+      is_all_day: true,
     }]);
   };
 
   return {
     onOpen,
-    AddTodoList,
+    addTodoList,
   };
 };

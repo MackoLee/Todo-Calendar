@@ -1,25 +1,22 @@
-import { dateAtom } from '@/recoil/atoms/todo-calendar-atom';
+import { todoListAtom } from '@/recoil/atoms/todo-calendar-atom';
 import { useRecoilState } from 'recoil';
-import React, { FC, useMemo } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 import moment from 'moment/moment';
 import { Dustbin } from '@/components/dustbins/Dustbin';
+import { useTodoCalendar } from '@/hooks/use-todo-calendar';
+import { bgColorOptions } from '@/components/palettes/ColorPalette';
+import { TodoOptions } from '@/components/items/TodoItem';
 
 export const MonthCalendar: FC = function MainMonthCalendar() {
-  const [date] = useRecoilState(dateAtom);
-  const year = date.year();
-  const month = date.month() + 1;
-  const day = date.date();
-
-  const startDay = useMemo(() => {
-    const startOfMonth = moment([year, month - 1, 1]);
-
-    return startOfMonth.startOf('week');
-  }, [year, month]);
-  const endDay = useMemo(() => {
-    const endOfMonth = moment([year, month - 1, 1]).endOf('month');
-
-    return endOfMonth.endOf('week');
-  }, [year, month]);
+  const {
+    startDay,
+    endDay,
+    year,
+    month,
+    day,
+    todoListByDate,
+  } = useTodoCalendar();
 
   const getTextColor = (currentDay: moment.Moment) => {
     const isSameMonth = (currentDay.month() === month - 1);
@@ -34,13 +31,19 @@ export const MonthCalendar: FC = function MainMonthCalendar() {
   };
   const getBackgroundColor = (currentDay: moment.Moment) => {
     if (currentDay.isSame(moment([year, month - 1, day]), 'day')) {
-      return 'bg-red-100';
+      return '';
     }
     if (currentDay.isSame(moment(), 'day')) {
       return 'bg-gray-300';
     }
     return '';
   };
+
+  const getTodoListByDate = (currentDay: moment.Moment) => todoListByDate[currentDay.format('YYYY-MM-DD')] || [];
+
+  const getTodoBgColor = (todoItem:any) => bgColorOptions.find(
+    (item) => item.name === todoItem.color,
+  )?.color;
 
   return (
     <div className="flex flex-col divide-y divide-[#BEBEBE] border border-[#BEBEBE] w-full h-full bg-white rounded-xl drop-shadow-md text-center">
@@ -79,6 +82,13 @@ export const MonthCalendar: FC = function MainMonthCalendar() {
                     <span className={`text-center inline-block leading-6 w-6 rounded-full ${getTextColor(currentDay)} ${getBackgroundColor(currentDay)}`}>
                       {currentDay.format('D')}
                     </span>
+                    <div className="text-black">
+                      {getTodoListByDate(currentDay).map((todo:any) => (
+                        <div key={todo.id} className={`text-white mx-1.5 rounded-md text-sm p-1 ${getTodoBgColor(todo)}`}>
+                          {todo.text}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </Dustbin>
               );
