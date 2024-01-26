@@ -4,7 +4,7 @@ require('dotenv').config({ path: `.env.${process.env.APP_ENV}` })
 const nextConfig = {
   assetPrefix: process.env.ASSET_PREFIX || '',
 
-  output: ,
+  output: 'export',
 }
 
 module.exports = nextConfig
