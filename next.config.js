@@ -1,11 +1,10 @@
+require('dotenv').config({ path: `.env.${process.env.APP_ENV}` })
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  assetPrefix:
-    process.env.NODE_ENV === 'production'
-      ? 'https://mackoLee.github.io/todo-calendar'
-      : '',
+  assetPrefix: process.env.ASSET_PREFIX || '',
 
-  output: 'export',
+  output: ,
 }
 
 module.exports = nextConfig
