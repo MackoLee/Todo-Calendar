@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import React from 'react';
-import moment from 'moment/moment';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
 import { Dustbin } from '@/components/dustbins/Dustbin';
 import { useTodoCalendar } from '@/hooks/use-todo-calendar';
 import { bgColorOptions } from '@/components/palettes/ColorPalette';
@@ -11,11 +12,11 @@ export const MonthCalendar: FC = function MainMonthCalendar() {
     endDay,
     year,
     month,
-    day,
+    date,
     todoListByDate,
   } = useTodoCalendar();
 
-  const getTextColor = (currentDay: moment.Moment) => {
+  const getTextColor = (currentDay: dayjs.Dayjs) => {
     const isSameMonth = (currentDay.month() === month - 1);
 
     if (currentDay.day() === 6) {
@@ -26,17 +27,17 @@ export const MonthCalendar: FC = function MainMonthCalendar() {
     }
     return isSameMonth ? 'text-gray-700' : 'text-gray-700/50';
   };
-  const getBackgroundColor = (currentDay: moment.Moment) => {
-    if (currentDay.isSame(moment([year, month - 1, day]), 'day')) {
+  const getBackgroundColor = (currentDay: dayjs.Dayjs) => {
+    if (currentDay.isSame(dayjs(new Date(year, month - 1, date)), 'day')) {
       return '';
     }
-    if (currentDay.isSame(moment(), 'day')) {
+    if (currentDay.isSame(dayjs(), 'day')) {
       return 'bg-gray-300';
     }
     return '';
   };
 
-  const getTodoListByDate = (currentDay: moment.Moment) => todoListByDate[currentDay.format('YYYY-MM-DD')] || [];
+  const getTodoListByDate = (currentDay: dayjs.Dayjs) => todoListByDate[currentDay.format('YYYY-MM-DD')] || [];
 
   const getTodoBgColor = (todoItem:any) => bgColorOptions.find(
     (item) => item.name === todoItem.color,
@@ -46,7 +47,7 @@ export const MonthCalendar: FC = function MainMonthCalendar() {
     <div className="flex flex-col divide-y divide-[#BEBEBE] border border-[#BEBEBE] w-full h-full bg-white rounded-xl drop-shadow-md text-center">
       <div className="flex divide-x divide-[#BEBEBE] font-bold">
         {Array.from({ length: 7 }).map((_, index2) => {
-          const currentDay = moment(startDay).add(7 + index2, 'days');
+          const currentDay = dayjs(startDay).add(7 + index2, 'days');
           return (
             <div
               className="flex-1 relative py-[4px]"
@@ -60,7 +61,7 @@ export const MonthCalendar: FC = function MainMonthCalendar() {
         })}
       </div>
       {Array.from({ length: ((endDay.diff(startDay, 'days') + 1) / 7) }).map((nWeek, index1) => {
-        const currentWeekDay = moment(startDay).add(7 * index1, 'days');
+        const currentWeekDay = dayjs(startDay).add(7 * index1, 'days');
         return (
           <div
             className="flex grow divide-x divide-[#BEBEBE]"

@@ -4,7 +4,7 @@ import { useDrag } from 'react-dnd';
 import { ItemTypes } from '@/types/ItemTypes';
 import { CheckBox } from '@/components/check-boxs/CheckBox';
 import { ColorOption, bgColorOptions } from '@/components/palettes/ColorPalette';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export interface TodoOptions {
   id: number | string,
@@ -65,7 +65,7 @@ export const TodoItem: FC<TodoItemProps> = function TodoItem({ className = '', o
           </p>
           {hasDate(options) && (
             <p className="text-gray-100 text-sm">
-              {moment(options.start_date).format('YYYY년 M월 D일')}
+              {dayjs(options.start_date).format('YYYY년 M월 D일')}
             </p>
           )}
 

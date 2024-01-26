@@ -1,10 +1,10 @@
 import { atom } from 'recoil';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { ColorOption } from '@/components/palettes/ColorPalette';
 
 export const dateAtom = atom({
   key: 'date',
-  default: moment(),
+  default: dayjs(),
 });
 
 export const todoListAtom = atom({

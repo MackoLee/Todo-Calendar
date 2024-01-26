@@ -4,12 +4,12 @@ import { useRecoilState } from 'recoil';
 import { dateAtom } from '@/recoil/atoms/todo-calendar-atom';
 import { Button } from '@/components/ui/button';
 import { FC } from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export const TodayButton: FC = function TodayButton() {
   const [, setDate] = useRecoilState(dateAtom);
   function onClick() {
-    setDate(moment());
+    setDate(dayjs());
   }
   return (
     <Button
