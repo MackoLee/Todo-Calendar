@@ -1,5 +1,5 @@
 import { selector } from 'recoil';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { todoListAtom } from '@/recoil/atoms/todo-calendar-atom';
 
 export const todoListByDateState = selector({
@@ -13,7 +13,7 @@ export const todoListByDateState = selector({
         return result;
       }
 
-      const key = moment(todo.start_date).format('YYYY-MM-DD');
+      const key = dayjs(todo.start_date).format('YYYY-MM-DD');
       if (!Object.keys(result).includes(key)) {
         result[key] = [];
       }
