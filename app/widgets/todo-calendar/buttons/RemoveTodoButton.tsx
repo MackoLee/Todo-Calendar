@@ -1,10 +1,11 @@
-import type { FC } from 'react';
+import React, { FC } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { useDrop } from 'react-dnd';
 import { ItemTypes } from '@/types/ItemTypes';
 import { Button } from '@/components/ui/button';
 
 export const RemoveTodoButton: FC = function RemoveTodoButton() {
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
   const [{ canDrop }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
     drop: () => ({ name: null }),
@@ -14,10 +15,12 @@ export const RemoveTodoButton: FC = function RemoveTodoButton() {
     }),
   }));
 
+  drop(buttonRef);
+
   const doBounce = canDrop ? 'animate-bounce' : '';
   return (
     <Button
-      ref={drop}
+      ref={buttonRef}
       size="icon"
       variant="outline"
       disabled={!canDrop}

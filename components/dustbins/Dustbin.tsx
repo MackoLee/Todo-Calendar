@@ -1,4 +1,4 @@
-import { useMemo, type FC, ReactNode } from 'react';
+import React, { useMemo, type FC, ReactNode } from 'react';
 import { useDrop } from 'react-dnd';
 
 import { ItemTypes } from '@/types/ItemTypes';
@@ -33,9 +33,13 @@ export const Dustbin: FC<DustbinProps> = function Dustbin({ className = '', name
     return `${defaultColor}`;
   }, [isActive, canDrop]);
 
+  const divRef = React.useRef(null);
+
+  drop(divRef);
+
   return (
     <div
-      ref={drop}
+      ref={divRef}
       className={`w-full h-full ${backgroundColor} ${className}`}
       data-testid="dustbin"
     >

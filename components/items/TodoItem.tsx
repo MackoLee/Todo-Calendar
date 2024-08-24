@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import React, { FC } from 'react';
 import { useDrag } from 'react-dnd';
 
 import { ItemTypes } from '@/types/ItemTypes';
@@ -48,9 +48,13 @@ export const TodoItem: FC<TodoItemProps> = function TodoItem({ className = '', o
 
   const hasDate = (_options: TodoOptions) => (_options.start_date && _options.end_date);
 
+  const divRef = React.useRef(null);
+
+  drag(divRef);
+
   return (
     <div
-      ref={drag}
+      ref={divRef}
       className={`w-full bg-[#004E6F] rounded-md p-3 cursor-grab active:cursor-grabbing ${className} ${opacity} ${bgColor}`}
       data-testid="box"
     >
